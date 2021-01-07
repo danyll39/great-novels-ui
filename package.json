@@ -4,10 +4,12 @@
   "description": "## Instructions In the initial commit of this project you have been provided with a fully functional REST API for retrieving data about great novels. Your task is to add a React front end to this project that will display a list of novels and include a search box allowing the user to search for particular novels by title. Your solution should be a true mono-repo with a single lint and dev npm script for the client and server.",
   "main": "index.js",
   "scripts": {
-    "dev:server": "env-cmd ./node_modules/.bin/nodemon index.js",
-    "dev:migrate": "env-cmd ./node_modules/.bin/sequelize db:migrate --env development --config ./configs/sequelize.js",
-    "lint": "eslint --format codeframe .",
-    "lint:fix": "eslint --fix --format codeframe ."
+    "dev": "./node_modules/.bin/concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:client": "./node_modules/.bin/webpack --progress  --config webpack.dev.js",
+    "dev:server": "./node_modules/.bin/env-cmd ./node_modules/.bin/babel-watch server.js",
+    "dev:migrate": "./node_modules/.bin/env-cmd ./node_modules/.bin/sequelize db:migrate --env development --config ./configs/sequelize.js",
+    "lint": "./node_modules/.bin/eslint --format codeframe --ext jsx .",
+    "test": "./node_modules/.bin/mocha tests/**/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -43,7 +45,6 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.22.0",
     "mocha": "^8.2.1",
-    "nodemon": "^2.0.2",
     "sinon": "^9.2.2",
     "sinon-chai": "^3.5.0",
     "webpack": "^5.11.1",
