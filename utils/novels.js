@@ -10,4 +10,3 @@ export const retrieveNovels = async () => {
 
   return novels
 }
-

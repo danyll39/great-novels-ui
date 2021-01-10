@@ -6,4 +6,3 @@ render(
   <Novels />,
   document.getElementById('root'),
 )
-

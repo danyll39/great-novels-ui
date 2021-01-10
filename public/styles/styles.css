@@ -1,0 +1,28 @@
+body{
+  background: url('novels.png');
+  font-size: 20px;
+}
+.page {
+  position: relative;
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+.page::after {
+  content: "";
+  opacity: 0.8;
+  background: rgb(26, 31, 41) no-repeat fixed top;
+  background-size: cover;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: -1;
+  height: 500px;
+}
+.subtitle{
+  font-style: italic;
+}
+.title{
+  font-size: 45px;
+}
